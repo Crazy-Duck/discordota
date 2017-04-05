@@ -53,6 +53,16 @@ exports.DotaHandler = class DotaHandler {
         if (this.bot.Dota2.Lobby) {
             // Check if game is done
             if (lobby.state == this.bot.Dota2.lookupEnum("LobbyType").POSTGAME) {
+                this.bot.schedule(() => {
+                    this.bot.Dota2.leavePracticeLobby((err, result) => {
+                        if (err) console.log(err);
+                        this.bot.schedule(() => {
+                            this.bot.Dota2.leaveChat("Lobby_"+lobby.lobby_id, 
+                                                     this.bot.Dota2.schema.lookupEnum("DOTAChatChannelType_t").DOTAChannelType_Lobby);
+                        });
+                        this.state = State.IDLE;
+                   });
+                });
                 util.log("Game "+ lobby.match_id +" has finished! Outcome is " + lobby.match_outcome);
             }
         } else {
