@@ -1,0 +1,9 @@
+var config = {};
+
+config.credentials = [{
+    "account_name": "username",
+    "password": "password"
+}];
+config.token = "discordtokengoeshere";
+
+module.exports = config;
