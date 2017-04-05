@@ -1,0 +1,13 @@
+{
+  "name": "discordota",
+  "version": "0.0.0",
+  "description": "Bot for organizing inhouses",
+  "main": "index.js",
+  "repository": "",
+  "author": "CrazyDuck",
+  "dependencies": {
+    "discord.js": "^10.0.1",
+    "dota2-bot": "^1.0.0",
+    "jsonfile": "^2.4.0"
+  }
+}
